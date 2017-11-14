@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+</head>
+</head>
+<body>
+<input type="text" id="text">
+<script>
+//document.getElementById("text").onkeypress = function(){ console.log("keypress");};
+//document.getElementById("text").onkeydown = function(){ console.log("keydown");};
+//document.getElementById("text").onkeyup = function(){ console.log("keyup");};
+
+//事件对应的函数有一个隐藏的变量e，表示发生事件。
+//e有一个属性e.which指示哪个键被按下，给出该键的索引值（按键码）。
+//静态函数String.fromCharCode()可以把索引值（按键码）转化成该键对应的的字符。
+
+document.getElementById("text").onkeydown = function(e){ 
+	console.log(e.which +' onkeydown '+ String.fromCharCode(e.which));
+	};
+
+document.getElementById("text").onkeypress = function(e){ 
+	console.log(e.which +' onkeypress '+ String.fromCharCode(e.which));
+	};
+
+document.getElementById("text").onkeyup = function(e){ 
+	console.log(e.which +' onkeyup '+ String.fromCharCode(e.which));
+	};
+</script>
+</body>
+</html>
