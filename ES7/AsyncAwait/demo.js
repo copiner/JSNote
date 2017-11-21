@@ -41,7 +41,7 @@ var savePoster = function (movieName, url) {
     for (var file of files) {
         let name = path.parse(file).name;
 
-        console.log(`正在获取【${name}】的海报`);
+        console.log(`正在获取${name}的海报`);
         savePoster(name, await getPoster(name));
     }
 
