@@ -14,8 +14,8 @@ var gen = function* (){
 	var f2 = yield readFile('gener.js');
 	// var f3 = yield readFile('genera.js');
 	// var f4 = yield readFile('generat.js');
-	console.log(f1.toString());
-	console.log(f2.toString());
+	//console.log(f1.toString());
+	//console.log(f2.toString());
 }
 
 var g = gen();
@@ -30,12 +30,13 @@ var g = gen();
 // { value: undefined, done: true }
 // { value: undefined, done: true }
 
-g.next().value.then(function(data){
-	//console.log("1----"+data);
-	g.next(data).value.then(function(data){
-		//console.log("2----"+data);
-		g.next(data);
-		//console.log("3----"+g.next().done);
+g.next().value.then(function(data1){
+	console.log("1----"+data1);
+	g.next(data1).value.then(function(data2){
+		console.log("2----"+data2);
+		g.next(data2);
+		console.log("3----"+g.next().done);
+		console.log(data1 + data2);
 	})
 })
 
