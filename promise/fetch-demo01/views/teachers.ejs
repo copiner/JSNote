@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>TEACHER</title>
+</head>
+<body>
+<div id="infos">query teacher info<div>
+<script>
+var area = document.querySelector("#list");
+var url = "/teachers/tinfos";
+//or 第三方调用地址，但是fetch不支持跨域 so
+//var url = "http://localhost:3000/teacher";
+var options={
+  method:"post",
+  headers: {
+    'Accept' : 'application/json',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    name: 'Francis',
+    age: "25"
+  }),
+  credentials:'include'
+}
+
+fetch(url, options).then(response=>response.json())
+.then(data=>{
+  console.log(data);
+})
+.catch(err=>console.log("Fetch came across :"+ err));
+
+</script>
+</body>
+</html>
