@@ -1,0 +1,16 @@
+
+var obj = null;
+
+var user = undefined;
+
+//user.toString();
+
+//obj.toString();
+
+obj = {};
+
+console.log(obj == true);
+console.log(obj === true);
+if(obj){
+    console.log("defined");
+}

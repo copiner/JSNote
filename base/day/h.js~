@@ -1,0 +1,2 @@
+//unicode
+var regName =/^[\u4e00-\u9fa5]{2,4}$/;  //china name

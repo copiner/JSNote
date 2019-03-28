@@ -1,0 +1,7 @@
+
+function test(){
+    countdown = 30;
+    function setTime(obj){
+	
+    }
+}

@@ -1,0 +1,13 @@
+let Discover = {
+
+}
+discoverCard : function(cardNo){
+    var temp = [];
+    var arr = TransCardListOper.temp;
+    for(var i=0;i<arr.length;i++){
+      if(arr[i].cardNo == cardNo){
+        temp = arr[i];
+      }
+    }
+    return temp;
+  }

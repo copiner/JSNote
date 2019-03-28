@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+  </head>
+  <body>
+    <ul id='ul1'>
+      <li>111</li>
+      <li>222</li>
+      <li>333</li>
+      <li>444</li>
+      <li>555</li>
+    </ul>
+    <script>
+	  window.onload = function(){
+	  var oUl = document.getElementById("ul1");
+	  oUl.onclick = function(){
+	  console.log(123);
+	  }
+	  }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+var Test = {
+
+    id:'001',
+    
+    initDate:function(){
+	console.log('123');
+    },
+    initEvent:function(){
+	console.log('456');
+    },
+    init:function(){
+	this.initDate();
+	console.log(this);
+    }
+};
+Test.init();

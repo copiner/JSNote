@@ -1,0 +1,6 @@
+function(){
+    if(a==2){
+	return false;
+    }
+    console.log("111111111111");
+}
