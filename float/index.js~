@@ -1,0 +1,7 @@
+var Decimal = require('decimal.js');
+
+x = new Decimal(2.18);
+y = new Decimal(100);
+
+var r = x.div(y);
+console.log(r);

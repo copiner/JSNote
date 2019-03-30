@@ -1,0 +1,9 @@
+const Big = require('big.js');
+
+x = new Big(9);                       // '9'
+y = new Big(x);                       // '9'
+z = Big(435.345);                         // 'new' is optional
+
+console.log(x.toString())
+console.log(y.toString());
+console.log(z.toString());

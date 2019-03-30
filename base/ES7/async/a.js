@@ -2,7 +2,7 @@ async function timeout(){
     return "hello";
 }
 
-console.log(timeout());
+console.log(timeout());//promise
 
 timeout().then(result=>{
     console.log(result);
