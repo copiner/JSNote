@@ -1,4 +1,12 @@
-/*
-实际上、当读取一个基本类型值的时候、后台就会创建一个对应的基本包装类型对象，
-从而让我们能够调用一些方法来操作这些数据
-*/
+
+var s1 = 'some text';
+s1.color = 'red';
+console.log(s1.color);
+
+
+var value = '25';
+var number = Number(value);
+console.log(typeof number);
+
+var obj = new Number(value);
+console.log(typeof obj);
