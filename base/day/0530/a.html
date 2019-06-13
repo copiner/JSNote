@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>a</title>
+  </head>
+  <body>
+    <script>
+
+      for(let i = 0; i<6;i++){
+          console.log(i);
+          var forVar = 'forVar';
+          let forLet = 'forLet';
+      }
+      //console.log(i);//i is not defined
+      //console.log(forVar, forLet);
+
+
+      console.log("***********************");
+
+      function test(){
+          var arr = new Array();
+          for(let i = 0; i<6; i++){
+              arr[i] = function(){
+                  return i;
+              }
+          }
+          return arr;
+      }
+
+      var arrObj = new test();
+
+      console.log(arrObj[1]);
+      /*
+       arrObj[1] = function(){
+       return i;
+       }
+      */
+      console.log(arrObj[1]());
+
+     </script>
+  </body>
+</html>

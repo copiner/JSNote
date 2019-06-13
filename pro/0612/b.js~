@@ -1,0 +1,16 @@
+/*
+函数名只是一个包含指针的变量而已
+全局的sayColor()函数与o.sayColor()指向的仍然是同一个函数
+*/
+
+var color = 'red';
+var o = {color:'blur'};
+
+function sayColor(){
+    console.log(this.color);
+}
+
+sayColor();//undefined
+
+o.sayColor = sayColor;
+o.sayColor();//blue

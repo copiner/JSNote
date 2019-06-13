@@ -1,0 +1,5 @@
+var obj = {
+
+    data:[{id:1,name:"kiu"}],
+    tcqbm:"12345"
+}

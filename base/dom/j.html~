@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>runoob</title>
+<script>
+	function displayResult(){
+		var x=document.getElementById("bike").value;
+		console.log(x);
+	}
+</script>
+</head>
+<body>
+	<form>
+		<input type="checkbox" id="bike" />BIKE
+	</form>
+	<button type="button" onclick="displayResult()">DIS</button>
+</body>
+</html>

@@ -1,0 +1,15 @@
+
+/*
+ES6¿é¼¶×÷ÓÃÓò
+*/
+
+
+
+console.log("***es6********");
+for(let i = 0; i<6;i++){
+    console.log(i);
+    var forVar = 'forVar';
+    var forLet = 'forLet';
+}
+//console.log(i);//i is not defined
+console.log(forVal, forLeft);
