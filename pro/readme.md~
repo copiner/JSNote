@@ -1,0 +1,1 @@
+### 所有原型对象都继承于Object.prototype，除了Object.prototype本身

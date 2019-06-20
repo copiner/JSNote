@@ -1,0 +1,35 @@
+
+### Boolean类型
+Boolean类型与布尔值对应的引用类型。要创建Boolean对象，可以像下面这样调用Boolean构造函数
+并传入true或false值
+var booleanObject = new Boolean(true);
+Boolean类型的实例重写了valueOf()方法，返回基本类型值true或false;重写了toString()方法
+返回字符串"true"和"false",可是，Boolean对象在ECMAScript中用处不大，因为它经常造成人们的误解。
+其中最常见的问题就是在布尔表达式中使用Boolean,例如：
+```javascript
+var falseObject = new Boolean(false);
+var result = falseObject && true;
+console.log(result)//true
+
+var falseValue = false;
+result = falseValue && true;
+console.log(result)
+```
+在这个例中，我们使用false值创建了一个Boolean对象。然后，将这个对象与基本类型值true构成
+逻辑与表达式。在布尔运算中，false && true等于 false。可是，示例中的这行代码是对
+falseObject而不是对它的值（false）进行求值。前面讨论过，布尔表达式中的所有对象都会被转换为true
+因此falseObject对象在布尔表达式中代表的是true。结果，true && true等于true了
+
+基本类型与引用类型的布尔值还有两个区别：
+
+首先，typeof操作符对基本类型返回boolean,而对引用类型返回object。
+
+其次，由于Boolean对象是Boolean类型的实例，所以使用instanceof操作符测试Boolean对象会返回true,
+而测试基本类型的布尔值则返回false。例如：
+```javascript
+console.log(typeof falseObject);//object
+console.log(typeof falseValue);//boolean
+
+console.log(falseObject instanceof Boolean);//true
+console.log(falseValue instanceof Boolean);//false
+```

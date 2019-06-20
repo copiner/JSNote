@@ -1,83 +1,83 @@
 
 
-### »ù±¾Êý¾ÝÀàÐÍ: Undefined¡¢Null¡¢Boolean¡¢NumberºÍString
+### åŸºæœ¬æ•°æ®ç±»åž‹: Undefinedã€Nullã€Booleanã€Numberå’ŒString
 
-### ÒýÓÃÊý¾ÝÀàÐÍ£ºObject¡¢Array¡¢Function
+### å¼•ç”¨æ•°æ®ç±»åž‹ï¼šObjectã€Arrayã€Function
 
-### »ù±¾°ü×°ÀàÐÍ£º
+### åŸºæœ¬åŒ…è£…ç±»åž‹ï¼š
 
-ÎªÁË±ãÓÚ²Ù×÷»ù±¾ÀàÐÍÖµECAMScript»¹Ìá¹©ÁË3¸öÌØÊâµÄÒýÓÃÀàÐÍ£ºBoolean¡¢Number¡¢String
+ä¸ºäº†ä¾¿äºŽæ“ä½œåŸºæœ¬ç±»åž‹å€¼ECAMScriptè¿˜æä¾›äº†3ä¸ªç‰¹æ®Šçš„å¼•ç”¨ç±»åž‹ï¼šBooleanã€Numberã€String
 
-ÕâÐ©ÀàÐÍÓëÆäËûÒýÓÃÀàÐÍÏàËÆ¡¢µ«Í¬Ê±Ò²¾ßÓÐÓë¸÷×ÔµÄ»ù±¾ÀàÐÍÏàÓ¦µÄÌØÊâÐÐÎª¡£
+è¿™äº›ç±»åž‹ä¸Žå…¶ä»–å¼•ç”¨ç±»åž‹ç›¸ä¼¼ã€ä½†åŒæ—¶ä¹Ÿå…·æœ‰ä¸Žå„è‡ªçš„åŸºæœ¬ç±»åž‹ç›¸åº”çš„ç‰¹æ®Šè¡Œä¸ºã€‚
 
 ```javascript
 var s1 = 'some text';
 var s2 = s1.substring(2);
 ```
 
-Õâ¸öÀý×ÓÖÐµÄ±äÁ¿s1,°üº¬Ò»¸ö×Ö·û´®£¬×Ö·û´®µ±È»ÊÇ»ù±¾ÀàÐÍÖµ¡£¶øÏÂÒ»ÐÐµ÷ÓÃÁËs1µÄsubstring()·½·¨£¬
-²¢½«·µ»ØµÄ½á¹û±£´æÔÚÁËs2ÖÐ¡£
+è¿™ä¸ªä¾‹å­ä¸­çš„å˜é‡s1,åŒ…å«ä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œå­—ç¬¦ä¸²å½“ç„¶æ˜¯åŸºæœ¬ç±»åž‹å€¼ã€‚è€Œä¸‹ä¸€è¡Œè°ƒç”¨äº†s1çš„substring()æ–¹æ³•ï¼Œ
+å¹¶å°†è¿”å›žçš„ç»“æžœä¿å­˜åœ¨äº†s2ä¸­ã€‚
 
-ÎÒÃÇÖªµÀ£¬»ù±¾ÀàÐÍÖµ²»ÊÇ¶ÔÏó£¬Òò¶ø´ÓÂß¼­ÉÏ½²ËüÃÇ²»Ó¦¸ÃÓÐ·½·¨£¨¾¡¹ÜÈçÎÒÃÇËùÔ¸£¬ËüÃÇÈ·ÊµÓÐ·½·¨£©¡£
+æˆ‘ä»¬çŸ¥é“ï¼ŒåŸºæœ¬ç±»åž‹å€¼ä¸æ˜¯å¯¹è±¡ï¼Œå› è€Œä»Žé€»è¾‘ä¸Šè®²å®ƒä»¬ä¸åº”è¯¥æœ‰æ–¹æ³•ï¼ˆå°½ç®¡å¦‚æˆ‘ä»¬æ‰€æ„¿ï¼Œå®ƒä»¬ç¡®å®žæœ‰æ–¹æ³•ï¼‰ã€‚
 
-ÆäÊµ£¬ÎªÁËÎÒÃÇÊµÏÖÕâÖÖÖ±¹ÛµÄ²Ù×÷£¬ºóÌ¨ÒÑ¾­×Ô¶¯Íê³ÉÁËÒ»ÏµÁÐ´¦Àí¡£
-µ±µÚ¶þÐÐ´úÂë·ÃÎÊs1Ê±£¬·ÃÎÊ¹ý³Ì´¦ÓÚÒ»ÖÖ¶ÁÈ¡Ä£Ê½£¬Ò²¾ÍÊÇÒª´ÓÄÚ´æÖÐ¶ÁÈ¡Õâ¸ö×Ö·û´®µÄÖµ£¬
-¶ø`µ±¶ÁÈ¡Ä£Ê½ÖÐ·ÃÎÊ×Ö·û´®Ê±`£¬ºóÌ¨¶¼»á×Ô¶¯Íê³ÉÏÂÁÐ´¦Àí£º
+å…¶å®žï¼Œä¸ºäº†æˆ‘ä»¬å®žçŽ°è¿™ç§ç›´è§‚çš„æ“ä½œï¼ŒåŽå°å·²ç»è‡ªåŠ¨å®Œæˆäº†ä¸€ç³»åˆ—å¤„ç†ã€‚
+å½“ç¬¬äºŒè¡Œä»£ç è®¿é—®s1æ—¶ï¼Œè®¿é—®è¿‡ç¨‹å¤„äºŽä¸€ç§è¯»å–æ¨¡å¼ï¼Œä¹Ÿå°±æ˜¯è¦ä»Žå†…å­˜ä¸­è¯»å–è¿™ä¸ªå­—ç¬¦ä¸²çš„å€¼ï¼Œ
+è€Œ`å½“è¯»å–æ¨¡å¼ä¸­è®¿é—®å­—ç¬¦ä¸²æ—¶`ï¼ŒåŽå°éƒ½ä¼šè‡ªåŠ¨å®Œæˆä¸‹åˆ—å¤„ç†ï¼š
 
-1¡¢´´½¨StringÀàÐÍµÄÒ»¸öÊµÀý
+1ã€åˆ›å»ºStringç±»åž‹çš„ä¸€ä¸ªå®žä¾‹
 
-2¡¢ÔÚÊµÀýÖÐµ÷ÓÃÖ¸¶¨µÄ·½·¨
+2ã€åœ¨å®žä¾‹ä¸­è°ƒç”¨æŒ‡å®šçš„æ–¹æ³•
 
-3¡¢Ïú»ÙÕâ¸öÊµÀý
+3ã€é”€æ¯è¿™ä¸ªå®žä¾‹
 
-¿ÉÒÔ½«ÒÔÉÏÈý¸ö²½ÖèÏëÏó³ÉÊÇÖ´ÐÐÁËÏÂÁÐECAMScript´úÂë
+å¯ä»¥å°†ä»¥ä¸Šä¸‰ä¸ªæ­¥éª¤æƒ³è±¡æˆæ˜¯æ‰§è¡Œäº†ä¸‹åˆ—ECAMScriptä»£ç 
 ```javascript
 var s1 = new String("some text");
 var s2 = s1.substring(2);
 s1 = null;
 ```
-¾­¹ý´Ë·¬´¦Àí£¬»ù±¾µÄ×Ö·û´®Öµ¾Í±äµÃ¸ú¶ÔÏóÒ»ÑùÁË£¬
-¶øÇÒÉÏÃæÈý¸ö²½ÖèÒ²·Ö±ðÊÊÓÃÓÚBooleanºÍNumberÀàÐÍ¶ÔÓ¦µÄ²¼¶ûÖµºÍÊý×ÖÖµ
+ç»è¿‡æ­¤ç•ªå¤„ç†ï¼ŒåŸºæœ¬çš„å­—ç¬¦ä¸²å€¼å°±å˜å¾—è·Ÿå¯¹è±¡ä¸€æ ·äº†ï¼Œ
+è€Œä¸”ä¸Šé¢ä¸‰ä¸ªæ­¥éª¤ä¹Ÿåˆ†åˆ«é€‚ç”¨äºŽBooleanå’ŒNumberç±»åž‹å¯¹åº”çš„å¸ƒå°”å€¼å’Œæ•°å­—å€¼
 
-### ÒýÓÃÀàÐÍÓë»ù±¾°ü×°ÀàÐÍµÄÇø±ð
-ÒýÓÃÀàÐÍÓë»ù±¾°ü×°ÀàÐÍµÄÖ÷ÒªÇø±ð¾ÍÊÇ¶ÔÏóµÄÉú´æÆÚ¡£Ê¹ÓÃnew²Ù×÷·û´´½¨µÄÒýÓÃÀàÐÍµÄÊµÀý£¬
-ÔÚÖ´ÐÐÁ÷Àë¿ªµ±Ç°×÷ÓÃÓòÖ®Ç°¶¼Ò»Ö±±£´æÔÚÄÚ´æÖÐ¡£¶ø×Ô¶¯´´½¨µÄ»ù±¾°ü×°ÀàÐÍµÄ¶ÔÏó£¬ÔòÖ»´æÔÚÓÚ
-Ò»ÐÐ´úÂëµÄÖ´ÐÐË²¼ä£¬È»ºóÁ¢¼´Ïú»Ù¡£ÕâÒâÎ¶×ÅÎÒÃÇ²»ÄÜÔÚÔËÐÐÊ±Îª»ù±¾ÀàÐÍÖµÌí¼ÓÊôÐÔºÍ·½·¨¡£
+### å¼•ç”¨ç±»åž‹ä¸ŽåŸºæœ¬åŒ…è£…ç±»åž‹çš„åŒºåˆ«
+å¼•ç”¨ç±»åž‹ä¸ŽåŸºæœ¬åŒ…è£…ç±»åž‹çš„ä¸»è¦åŒºåˆ«å°±æ˜¯å¯¹è±¡çš„ç”Ÿå­˜æœŸã€‚ä½¿ç”¨newæ“ä½œç¬¦åˆ›å»ºçš„å¼•ç”¨ç±»åž‹çš„å®žä¾‹ï¼Œ
+åœ¨æ‰§è¡Œæµç¦»å¼€å½“å‰ä½œç”¨åŸŸä¹‹å‰éƒ½ä¸€ç›´ä¿å­˜åœ¨å†…å­˜ä¸­ã€‚è€Œè‡ªåŠ¨åˆ›å»ºçš„åŸºæœ¬åŒ…è£…ç±»åž‹çš„å¯¹è±¡ï¼Œåˆ™åªå­˜åœ¨äºŽ
+ä¸€è¡Œä»£ç çš„æ‰§è¡Œçž¬é—´ï¼Œç„¶åŽç«‹å³é”€æ¯ã€‚è¿™æ„å‘³ç€æˆ‘ä»¬ä¸èƒ½åœ¨è¿è¡Œæ—¶ä¸ºåŸºæœ¬ç±»åž‹å€¼æ·»åŠ å±žæ€§å’Œæ–¹æ³•ã€‚
 
 ```javascript
 var s1 = 'some text';
 s1.color = 'red';
 console.log(s1.color);//undefined
 ```
-ÔÚ´Ë£¬µÚ¶þÐÐ´úÂëÊÔÍ¼Îª×Ö·û´®s1Ìí¼ÓÒ»¸öcolorÊôÐÔ£¬µ«ÊÇµ±µÚÈýÐÐ´úÂëÔÙ´Î·ÃÎÊs1Ê±£¬Æäcolor
-ÊôÐÔ²»¼ûÁË£¬ÎÊÌâµÄÔ­ÒòÒ²¾ÍÊÇµÚ¶þÐÐ´´½¨µÄstring¶ÔÏóÔÚÖ´ÐÐµÚÈýÐÐ´úÂëµÄÊ±ºòÒÑ¾­Ïú»ÙÁË¡£
-µÚÈýÐÐ´úÂëÓÖ´´½¨×Ô¼ºµÄString¶ÔÏó£¬¶ø¸Ã¶ÔÏóÃ»ÓÐcolorÊôÐÔ¡£
+åœ¨æ­¤ï¼Œç¬¬äºŒè¡Œä»£ç è¯•å›¾ä¸ºå­—ç¬¦ä¸²s1æ·»åŠ ä¸€ä¸ªcolorå±žæ€§ï¼Œä½†æ˜¯å½“ç¬¬ä¸‰è¡Œä»£ç å†æ¬¡è®¿é—®s1æ—¶ï¼Œå…¶color
+å±žæ€§ä¸è§äº†ï¼Œé—®é¢˜çš„åŽŸå› ä¹Ÿå°±æ˜¯ç¬¬äºŒè¡Œåˆ›å»ºçš„stringå¯¹è±¡åœ¨æ‰§è¡Œç¬¬ä¸‰è¡Œä»£ç çš„æ—¶å€™å·²ç»é”€æ¯äº†ã€‚
+ç¬¬ä¸‰è¡Œä»£ç åˆåˆ›å»ºè‡ªå·±çš„Stringå¯¹è±¡ï¼Œè€Œè¯¥å¯¹è±¡æ²¡æœ‰colorå±žæ€§ã€‚
 
-### ¿ÉÒÔÏÔÊ¾µØµ÷ÓÃBoolean¡¢Number¡¢ºÍStringÀ´´´½¨»ù±¾°ü×°ÀàÐÍµÄ¶ÔÏó¡£
-²»¹ýÓ¦¸ÃÔÚ¾ø¶Ô±ØÒªµÄÇé¿öÏÂÔÙÕâÑù×ö¡£ÒòÎªÕâÖÖ×ö·¨ºÜÈÝÒ×ÈÃÈË·Ö²»Çå×Ô¼ºÊÇÔÚ´¦Àí»ù±¾ÀàÐÍ»¹ÊÇÒýÓÃÀàÐÍµÄÖµ
+### å¯ä»¥æ˜¾ç¤ºåœ°è°ƒç”¨Booleanã€Numberã€å’ŒStringæ¥åˆ›å»ºåŸºæœ¬åŒ…è£…ç±»åž‹çš„å¯¹è±¡ã€‚
+ä¸è¿‡åº”è¯¥åœ¨ç»å¯¹å¿…è¦çš„æƒ…å†µä¸‹å†è¿™æ ·åšã€‚å› ä¸ºè¿™ç§åšæ³•å¾ˆå®¹æ˜“è®©äººåˆ†ä¸æ¸…è‡ªå·±æ˜¯åœ¨å¤„ç†åŸºæœ¬ç±»åž‹è¿˜æ˜¯å¼•ç”¨ç±»åž‹çš„å€¼
 
-¶Ô»ù±¾°ü×°ÀàÐÍµÄÊµÀýµ÷ÓÃtypeof »á·µ»ØObject£¬¶øÇÒËùÓÐ»ù±¾°ü×°ÀàÐÍµÄ¶ÔÏó¶¼»á±»×ª»»Îª²¼¶ûÖµtrue¡£
+å¯¹åŸºæœ¬åŒ…è£…ç±»åž‹çš„å®žä¾‹è°ƒç”¨typeof ä¼šè¿”å›žObjectï¼Œè€Œä¸”æ‰€æœ‰åŸºæœ¬åŒ…è£…ç±»åž‹çš„å¯¹è±¡éƒ½ä¼šè¢«è½¬æ¢ä¸ºå¸ƒå°”å€¼trueã€‚
 
-### Object¹¹Ôìº¯Êý
-Object¹¹Ôìº¯ÊýÒ²»áÏñ¹¤³§·½·¨Ò»Ñù£¬¸ù¾Ý´«ÈëÖµµÄÀàÐÍ·µ»ØÏàÓ¦µÄ»ù±¾°ü×°ÀàÐÍµÄÊµÀý
+### Objectæž„é€ å‡½æ•°
+Objectæž„é€ å‡½æ•°ä¹Ÿä¼šåƒå·¥åŽ‚æ–¹æ³•ä¸€æ ·ï¼Œæ ¹æ®ä¼ å…¥å€¼çš„ç±»åž‹è¿”å›žç›¸åº”çš„åŸºæœ¬åŒ…è£…ç±»åž‹çš„å®žä¾‹
 ```javascript
 var obj = new Object('some text');
 console.log(obj instanceof String);//true
 ```
-°Ñ×Ö·û´®´«¸øObject¹¹Ôìº¯Êý£¬¾Í»á´´½¨StringµÄÊµÀý£»¶ø´«ÈëÊýÖµ²ÎÊý¾Í»áµÃµ½NumberµÄÊµÀý£¬
-´«Èë²¼¶ûÖµ²ÎÊý¾Í»áµÃµ½BooleanµÄÊµÀý¡£
+æŠŠå­—ç¬¦ä¸²ä¼ ç»™Objectæž„é€ å‡½æ•°ï¼Œå°±ä¼šåˆ›å»ºStringçš„å®žä¾‹ï¼›è€Œä¼ å…¥æ•°å€¼å‚æ•°å°±ä¼šå¾—åˆ°Numberçš„å®žä¾‹ï¼Œ
+ä¼ å…¥å¸ƒå°”å€¼å‚æ•°å°±ä¼šå¾—åˆ°Booleançš„å®žä¾‹ã€‚
 
-#### ×¢Òâ
-Ê¹ÓÃnewµ÷ÓÃ»ù±¾°ü×°ÀàÐÍµÄ¹¹Ôìº¯Êý£¬ÓëÖ±½Óµ÷ÓÃÍ¬ÃûµÄ×ªÐÍº¯ÊýÊÇ²»Ò»ÑùµÄ¡£
+#### æ³¨æ„
+ä½¿ç”¨newè°ƒç”¨åŸºæœ¬åŒ…è£…ç±»åž‹çš„æž„é€ å‡½æ•°ï¼Œä¸Žç›´æŽ¥è°ƒç”¨åŒåçš„è½¬åž‹å‡½æ•°æ˜¯ä¸ä¸€æ ·çš„ã€‚
 ```javascript
 var value = '25';
-var number = Number(value);//×ªÐÍº¯Êý
+var number = Number(value);//è½¬åž‹å‡½æ•°
 console.log(typeof number);//'number'
 
-var obj = new Number(value);//×ªÐÍº¯Êý
+var obj = new Number(value);//è½¬åž‹å‡½æ•°
 console.log(typeof obj);//'object'
 ```
-ÔÚÕâ¸öÀýÖÐ£¬±äÁ¿numberÖÐ±£´æµÄ»ù±¾ÀàÐÍµÄÖµÎª25£¬¶ø±äÁ¿objÖÐ±£´æµÄÊÇNumberµÄÊµÀý¡£
+åœ¨è¿™ä¸ªä¾‹ä¸­ï¼Œå˜é‡numberä¸­ä¿å­˜çš„åŸºæœ¬ç±»åž‹çš„å€¼ä¸º25ï¼Œè€Œå˜é‡objä¸­ä¿å­˜çš„æ˜¯Numberçš„å®žä¾‹ã€‚
 
-¾¡¹ÜÎÒÃÇ²»½¨ÒéÏÔÊ¾µØ´´½¨»ù±¾°ü×°ÀàÐÍµÄ¶ÔÏó£¬µ«ËûÃÇ²Ù×÷»ù±¾ÀàÐÍÖµµÄÄÜÁ¦»¹ÊÇÏàµ±ÖØÒªµÄ¡£
-¶øÃ¿¸ö»ù±¾°ü×°ÀàÐÍ¶¼Ìá¹©ÁË²Ù×÷ÏàÓ¦ÖµµÄ±ã½Ý·½·¨
+å°½ç®¡æˆ‘ä»¬ä¸å»ºè®®æ˜¾ç¤ºåœ°åˆ›å»ºåŸºæœ¬åŒ…è£…ç±»åž‹çš„å¯¹è±¡ï¼Œä½†ä»–ä»¬æ“ä½œåŸºæœ¬ç±»åž‹å€¼çš„èƒ½åŠ›è¿˜æ˜¯ç›¸å½“é‡è¦çš„ã€‚
+è€Œæ¯ä¸ªåŸºæœ¬åŒ…è£…ç±»åž‹éƒ½æä¾›äº†æ“ä½œç›¸åº”å€¼çš„ä¾¿æ·æ–¹æ³•
