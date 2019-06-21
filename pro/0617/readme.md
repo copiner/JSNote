@@ -174,4 +174,128 @@ console.log(result);//"cond,bond,dond,fond"
 ```
 在这个例中，首先传入replace()方法的是字符串"at"和替换用的字符串"ond"。替换的结果是把"cat"变为了"cond",但字符串中的其他字符没有受到影响。然后将第一个参数修改为带有全局标志的正则表达式。就将全部"at"都替换为了"ond"。
 
-如果第二个参数是字符串
+如果第二个参数是字符串,那么还可以使用一些特殊的字符序列，将正则表达式操作得到的值插入到结果字符串中。
+
+下面列出ECMAScript提供的这些特殊的字符序列
+
+`
+$$ ------ $
+
+$& ------ 匹配整个模式的子字符串。与RegExp.lastMatch的值相同
+
+$' ------ 匹配的子字符串之前的子字符串，与RegExp.leftContext的值相同
+
+$` ------ 匹配的子字符串之后的子字符串，与RegExp.rightContext的值相同
+
+$n ------ 匹配第n个捕获组的子字符串，其中n等于0~9。例如，$1是匹配第一个捕获组的子字符串，
+$2是匹配第二个捕获组的子字符串，以此类推，如果正则表达式中没有定义捕获组，则使用空字符串
+
+$nn ------ 匹配第nn个捕获组的子字符串，其中nn等于01~99。例如，$01是匹配第一个捕获组的子字符串，$02是匹配第二个捕获组的子字符串，以此类推。如果正则表达式中没有定义捕获组，则使用空字符串。
+`
+
+通过这些特殊的字符序列，可以使用最近一次匹配结果中的内容，如下所示
+```javascript
+var text = 'cat,bat,sat,fat';
+result = text.replace(/(.at)/g,"word($1)");
+console.log(result);//word(cat),word(bat),word(sat),word(fat)
+```
+在此，每个以'at'结尾的单词都被替换了，替换结果是'word'后跟一对圆括号，而圆括号中是被字符串序列$1所替换的单词。
+
+replace()方法的第二个参数也可以是一个函数。在只有一个匹配项（即与模式匹配的字符串）的情况下，会向这个参数传递3个参数；
+
+模式的匹配项，模式匹配项在字符串中的位置和原始字符串。
+
+在正则表达式中定义了多个捕获组的情况下。传递给函数的参数依次是模式的匹配项，第一个捕获组的匹配项，第二个捕获组的匹配项......，
+
+但最后两个参数仍然分别是模式的匹配项在字符串中的位置和原始字符串。
+
+这个函数应该返回一个字符串，表示应该被替换的匹配项。使用函数作为replace()方法的第二个参数可以实现更加精细的替换操作
+```javascript
+function htmlEscape(text){
+    return text.replace(/[<>"&]/g,function(match,pos,originalText){
+        switch(match){
+            case "<":
+                return "&lt;";
+            case ">":
+                return "&gt;";
+            case "&":
+                return "&amp;";
+            case "\"":
+                return "&quot;";
+        }
+    });
+}
+
+console.log(htmlEscape(
+    "<p class=\"greeting\">Hello world!</p>"
+));
+//&lt;p class=&quot;greeting&quot;&gt;Hello world!&lt;/p&gt;
+
+```
+这里，我们为插入HTML代码定义了函数htmlEscape(),这个函数能够转义四个字符：小于号、大于号、和号以及双引号。实现这种转义的最简单方式，就是使用正则表达式查找这几个字符，然后定义一个能够针对每个匹配的字符返回特定的HTML实体的函数。
+
+最后一个与模式匹配的有关的方法是split(),这个方法可以基于指定的分隔符将一个字符串分割成多个子字符串，并将结果放在一个数组中。分隔符可以是字符串，也可以是一个RegExp对象（这个方法不会将字符串看成正则表达式）。
+
+split()方法可以接受可选的第二个参数，用于用于指定数组的大小，以便确保返回的数组不会超过既定的大小。
+
+```javascript
+var colorText = "red,blue,green,yellow";
+var colors1 = colorText.split(",");
+var colors2 = colorText.split(",",2);
+var colors3 = colorText.split(/[^\,]+/);
+
+console.log(colors1);
+console.log(colors2);
+console.log(colors3);
+```
+在这个例中，colorText是逗号分隔的颜色字符串。基于该字符串调用split(",")会得到包含其中颜色名的数组，用于分割字符串的分隔符是逗号。为了将数组截短，让它只包含两项，可以为split()方法传递第二个参数2。最后，通过使用正则表达式，还可以取得包含逗号字符的数组。
+
+需要注意的是，在最后一次调用split()返回的数组中，第一项和最后一项是两个空字符串。之所以会这样，是因为通过正则表达式指定的分隔符出现在了字符串的开头（即子字符串"red")和末尾（即子字符串"yellow")。
+
+对split()中正则表达式的支持因浏览器而已
+
+#### localeCompare()方法
+与操作符有关的最后一个方法，该方法比较两个字符串，并返回下列值中的一个：
+
+1、如果字符串在字母表中应该排在字符串参数之前，则返回一个负数，（大多数情况下-1、具体的值要视实现而定）；
+
+2、如果字符串等于字符串参数，则返回0;
+
+3、如果字符串在字母表中应该排在字符串参数之后，则返回一个正数（大多数情况下是1，具体清qiqi情况视实现而定）。
+
+```javascript
+var stringValue = 'yellow';
+console.log(stringValue.localeCompare('brick'));
+console.log(stringValue.localeCompare('yellow'));
+console.log(stringValue.localeCompare('zoo'));
+```
+这个例子比较了字符串"yellow"和另外几个值:"brick","yellow"和"zoo"。因为"brick"在字母表中排在"yellow"之前，所以localeCompare()返回了1；而"yellow"等于"yellow",所以返回0；最后，"zoo"在字母表中排在"yellow"后面，所以localeCompare()返回了-1。
+
+注意，因为localeCompare()返回的数组取决于实现，所以最好像下面例子所示的这样使用这个方法。
+
+```javascript
+function determineOrder(value){
+         var result = stringValue.localeCompare(value);
+         if(result < 0){
+           return -1;
+         } else if(result > 0){
+           return 1;
+         } else {
+           return 0;
+         }
+}
+
+determineOrder("brick");
+determineOrder("yellow");
+determineOrder("zoo");
+```
+localeCompare()方法比较与众不同的地方就是实现所支持的地区（国家和语言）决定了这个方法的行为。
+
+#### fromCharCode()方法
+
+另外，String构造函数本身还有一个静态方法：fromCharCode()。这个方法的任务是接收一或多个字符编码，然后将它们转换一个字符串。从本质上来看，这个方法与实例方法charCodeAt()执行相反的操作。
+
+```javascript
+
+console.log(String.fromCharCode(104,101,108,108,111));//"hello"
+```
