@@ -9,11 +9,13 @@ var name = 'hello';
 var arr = [1, 2, 3, 4, 5];
 
 function foo(o) {
-    var bar = arr || [6, 7, 8];
+    console.log(arr);
+    var bar = arr;// || [6, 7, 8];
     var arr = [4, 2, 9];
-    var baz = o;
-    baz.a = 2;
-    console.log(bar, obj.a);
+  //  var baz = o;
+//    baz.a = 2;
+    console.log(bar);
+    //console.log(bar, obj.a);
 }
 
 function sayName() {
@@ -21,4 +23,4 @@ function sayName() {
 }
 
 foo(obj);
-obj.objSayName(sayName);
+//obj.objSayName(sayName);

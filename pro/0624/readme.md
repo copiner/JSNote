@@ -1,0 +1,203 @@
+### Global 对象
+
+Global对象可以说是ECMAScript中最特别的一个对象了，因为不管你从什么角度上看，这个对象都是不存在的。ECMAScript中的Global对象在某种意义上是作为一个终极的”兜底儿对象“来定义的。
+
+换句话说，不属于任何其他对象的属性和方法，最终都是它的属性和方法。事实上，没有全局变量或全局函数；所有在全局作用域中定义的属性和函数，都是Global对象的属性。例如isNaN()、isFinite()、parseInt()、parseFloat()，实际上全都是Global对象的方法。除此之外、Global对象还包含其他一些方法。
+
+#### URI编码方法
+
+Global对象的encodeURI()和encodeURIComponent()方法可以对URI(uniform Resource Identifiers,通用资源标识符)进行编码，以便发送给浏览器。有效的URI中不能包含某些字符。例如，空格。
+而这两个URI编码方法就可以对URI进行编码，它们用特殊的UTF-8编码替换所有无效的字符，从而让浏览器能够接收和理解。
+
+其中，encodeURI()主要用于整个URI(例如，http://www.wrox.com/illegal value.html),而encodeURIComponent()主要用于对URI中的某一段（例如前面URI中的illegal value.htm)进行编码，它们的主要区别在于，encodeURI()不会对本身输入URI的特殊字符进行编码，例如冒号、正斜杠、问号、和井字号；而encodeURIComponent()则会对它发现的任何非标准字符进行编码。
+
+```javascript
+var uri = "http://www.wrox.com/illegal value.htm#start";
+
+console.log(encodeURI(uri));
+
+console.log(encodeURIComponent(uri));
+```
+使用encodeURI()编码后的结果是除了空格之外的其他字符都原封不动，只有空格被替换成了%20。而encodeURIComponent()方法则会使用对应的编码替换所有非字母数字字符串。这也正是可以对整个URI使用encodeURI()，而只能对附加在现有URI后面的字符串使用encodeURIComponent()的原因所在。
+
+一般来是，我们使用encodeURIComponent()方法的时候要比使用encodeURI()更多，因为在实践中更常见的是对查询字符串参数而不是对基础URI进行编码。
+
+与encodeURI()和encodeURIComponent()方法对应的两个方法分别是decodeURI()和decodeURIComponent()。其中，decodeURI()只能对使用encodeURI()替换的字符进行解码，例如，它可以将%20替换成一个空格，但是不会对%23做任何处理，因为%23表示井字号（#），而井字号不是使用encodeURI()替换的。同样地，decodeURIComponent()能够解码使用encodeURIComponent()编码的所有字符，即它可以解码任何特殊字符的编码。
+
+```javascript
+var uri = "http%3A%2F%2Fwww.wrox.com%2Fillegal%20value.htm%23start";
+console.log(decodeURI(uri));
+
+console.log(decodeURIComponent(uri));
+```
+
+这里，变量uri包含着一个由encodeURIComponent()编码的字符串。在第一次调用decodeURI()输出的结果中，只有%20被替换成了空格。而第二次调用decodeURIComponent()输出的结果中，所有特殊字符的编码都被替换成了原来的字符，得到了一个未经转义的字符串（这个字符串并不是一个有效的URI)。
+
+#### eval()方法
+eval()方法就像是一个完整的ECMAScript解析器，它只接受一个参数，即要执行的ECMAScript(或javascript)字符串。
+```javascript
+eval("alert('hi')");
+```
+等价于alert('hi');
+
+当解析器发现代码中调用eval()方法时，它会将传入的参数当作实际的ECMAScript语句来解析，然后把执行结果插入到原位置。通过eval()执行的代码被认为是包含该次调用的执行环境的一部分，因此被执行的代码具有与该执行环境相同的作用域链。这意味着通过eval()执行的代码可以引用在包含环境中定义的变量。
+```javascript
+var msg = "hello world";
+eval('alert(msg)');
+```
+可见，变量msg是在eval()调用的环境之外定义的，但其中调用的alert()仍然能够显示"hello world"。这是因为上面第二行代码最终被替换成了一行真正的代码。同样地，我们也可以在eval()调用中定义一个函数，然后再在该调用的外部代码中引用这个函数；
+
+```javascript
+eval("function sayHi(){ alert('hi');}");
+sayHi();
+```
+显然，函数sayHi()是在eval()内部定义的。但由于对eval()的调用最终会被替换成定义函数的实际代码，因此可以在下一行调用sayHi()。对于变量也一样：
+
+```javascript
+eval("var mag = 'hello world';");
+console.log(msg);
+```
+在eval()中创建的任何变量或函数都不会被提升，因为在解析代码的时候，它们被包含在一个字符串中；它们只在eval()执行的时候创建。
+
+严格模式下，在外部访问不到eval()中创建的任何变量或函数，因此前面两个例子都会导致错误。同样，在严格模式下，为eval赋值也会导致错误:
+```javascript
+"use strict"
+eval = 'hi';//cause error
+```
+能够解释代码字符串的能力非常强大，但也非常危险。因此在使用eval()时必须极为谨慎，特别是在用它执行用户输入数据的情况下。否则会有恶意用户输入威胁你的站点或应用程序安全的代码（即所谓的代码注入）。
+
+### Global对象的属性
+Global对象还包含一些属性，例如，特殊的值undefined、NaN、Infinity、都Global对象的属性。
+此外，所有原生引用类型的构造函数，像Object、Function，也都是Global对象的属性。下面列出Global对象的所有属性。
+```javascript
+undeined        特殊值undefined
+NaN             特殊值NaN
+Infinity        特殊值Infinity
+
+Object          构造函数Object
+Array           构造函数Array
+Function        构造函数Function
+Boolean         构造函数Boolean
+String          构造函数String
+Number          构造函数Number
+Date            构造函数Date
+RegExp          构造函数RegExp
+Error           构造函数Error
+
+EvalError       构造函数EvalError
+RangeError      构造函数RangeError
+ReferenceError  构造函数ReferenceError
+SyntaxError     构造函数SyntaxError
+TypeError       构造函数TypeError
+URIError        构造函数URIError
+```
+ECMAScript5 明确禁止给undefined、NaN、和Infinity赋值，这样做即使在非严格模式下也会报错。
+
+### window对象
+ECMAScript虽然没有指出如何直接访问Global对象，但是Web浏览器都是将这个全局对象作为window对象的一部分加以实现的。因此，在全局作用域中声明的所有变量和函数，就都成为了window对象的属性。
+```javascript
+var color = 'red';
+
+function sayColor(){
+         console.log(window.color);
+}
+window.sayColor();//"red"
+```
+javascript中的window对象除了扮演ECMAScript规定的Global对象的角色外，还承担了很多别的任务。
+
+另一种取得Global对象的方法是使用一下代码:
+```javascript
+var global = function(){
+    return this;
+}();
+```
+以上代码创建了一个立即调用的函数表达式，返回this值。如前所述。在没有明确指定thsi值的情况下（无论是通过将函数添加为对象的方法，还是通过调用call()或apply()，this的值等于Global对象。而像这样通过简单地返回this来取得Global对象，在任何执行环境下都是可行的。
+
+
+### Math对象
+
+ECMAScript还为保存数学公式和信息提供了一个公共的位置，即Math对象。与我们在JavaScript直接编写的计算功能相比，Math对象提供的计算功能执行起来要快很多。Math对象中还提供了辅助完成这些计算的属性和方法。
+
+#### Math对象的属性
+Math对象包含的属性大都是数学计算中可能会用到的一些特殊值。如下:
+```javascript
+Math.E          自然对数的底数，即常量e的值
+Math.LN10       10的自然对数
+Math.LN2        2的自然对数
+Math.LOG2E      以2为底e的对数
+Math.LOG10E     以10为底e的对数
+Math.PI         Π的值
+
+Math.SQRT1_2    1/2的平方根（即2的平方根的倒数）
+Math.SQRT2      2的平方根
+```
+#### min()和max()方法
+Math对象还包含许多方法，用于辅助完成简单和复杂的数学计算
+其中，min()和max()方法用于确定一组数值中的最小值和最大值。这两个方法都可以接收任意多个参数，如下
+```javascript
+var max = Math.max(3,54,32,16);
+console.log(max);//54
+
+var min = Math.min(3,54,32,16);
+console.log(min);//3
+```
+
+这两个方法经常用于避免多余的循环和在if语句中确定一组数的最大值或最小值。
+
+要找到数组中的最大或最小值，可以向下面这样使用apply()方法。
+```javascript
+var value = [1,2,3,4,5,6,7,8];
+var max = Math.max.apply(Math,value);
+```
+这个技巧的关键是把Math对象作为apply()的第一个参数，从而正确设置this值。然后，可以将任何数组作为第二个参数。
+
+#### 舍入方法
+Math.ceil()执行向上舍入，即它总是将数值向上舍入为最接近的整数；
+Math.floor()执行向下舍入，即它总是将数值向下舍入为最接近的整数；
+Math.round()执行标准舍入，即它总是将数值四舍五入为接近的整数；
+```javascript
+console.log(Math.ceil(25.9));//26
+console.log(Math.ceil(25.5));//26
+console.log(Math.ceil(25.1));//26
+
+console.log(Math.round(25.9));//26
+console.log(Math.round(25.5));//26
+console.log(Math.round(25.1));//25
+
+console.log(Math.floor(25.9));//25
+console.log(Math.floor(25.5));//25
+console.log(Math.floor(25.1));//25
+```
+
+#### random()方法
+Math.random()方法返回大于等于0小于1的一个随机数。
+
+运用Math.random()及Math.floor()可以从某个整数范围随机选择一个值。
+
+```javascript
+//选择一个1到10之间的数值
+var num = Math.floor(Math.random()*10+1);
+```
+
+```javascript
+//选择一个2到10之间的数值
+var num = Math.floor(Math.random()*9+2);
+```
+从2数到10要数9个数，因此可能值的总数就是9，而第一个可能的值就是2。多数情况下，其实都可以通过一个函数来计算可能的值的总数和第一个可能的值。例如
+```javascript
+function selectFrom(lowerValue,upperValue){
+         var choices = upperValue - lowerValue + 1;
+         return Math.floor(Math.random()*choices + lowerValue);
+}
+
+var num = selectFrom(2,10);
+console.log(num);
+```
+函数selectFrom()接收两个参数；应该返回的最小值和最大值。而用最大值减最小值再加1得到了可能值的总数，然后它又把这些数值套用到了前面的公式中。这样，通过调用selectFrom(2,10)就可以得到一个介于2和10之间（包括2和10）的数值了。利用这个函数，可以方便地从数组中随机取出一项，例如:
+
+```javascript
+var colors = ["red","green","blue","yellow","black","purple","brown"];
+var color = colors[selectFrom(0,colors.length-1)];
+console.log(color);
+```
+在这个例子中，传递给selectFrom()的第二个参数是数组的长度减1，也就是数组最后一项的位置。
