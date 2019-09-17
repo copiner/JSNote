@@ -1,0 +1,10 @@
+
+var a = 1;
+function test(){
+    console.log(this.a);
+}
+
+let obj = {
+    a : 2,
+    test
+}
