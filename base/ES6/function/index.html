@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Sample</title>
+  </head>
+  <body>
+  <script>
+    var num = 0;//window.num = 0;
+
+    function Counter1(){
+      this.num = 7;//a : window.num = 7;   b : c.num = 7;
+      this.timer = setInterval(function(){
+          this.num++;//a : window.num = 7  window.num++; b : window.num = 0  window.num++
+          console.log(this.num);
+      },1000);
+    }
+
+    //Counter1();     //a----------------
+
+    var c = new Counter1();//b------------------
+
+  </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+/*
+  array functions
+
+  (parameters) => {statements}
+
+  () => { statements }
+
+  (a) => { statements }
+
+  a => expression
+*/
+
+function Counter(){
+    this.num = 99;
+}
+
+var a = new Counter();
+
+console.log(a.num);//0
+
+var num = 0;
+
+function Counter1(){
+    this.num = 7;
+    this.timer = setInterval(function(){
+        this.num++;
+        console.log(this.num);
+    },1000);
+}
+
+Counter1();
+
+
+//var c = new Counter1();
+
+//console.log(c);

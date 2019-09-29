@@ -1,4 +1,0 @@
-var last = new Date();
-last.setDate(1);
-last.setMonth(last.getMonth()-1);
-console.log(last);
