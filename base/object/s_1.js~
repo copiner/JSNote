@@ -1,6 +1,0 @@
-
-var a = {};
-var name = Symbol();
-a.name = 'lili';
-a[name] = 'lucy';
-console.log(a.name,a[name]);             //lili,lucy
