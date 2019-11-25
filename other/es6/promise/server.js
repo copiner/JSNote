@@ -1,8 +1,7 @@
-var http = require('http');
-var url = require("url");
-var path = require("path");
-var fs = require('fs');
-//var qs = require('querystring');
+const http = require('http');
+const url = require("url");
+const path = require("path");
+const fs = require('fs');
 
 const hostname = '127.0.0.1';
 const port = 3000;
@@ -10,6 +9,20 @@ const port = 3000;
 const server = http.createServer(handle_incoming_request);
 
 function handle_incoming_request(req, res){
+
+	//设置允许跨域的域名，*代表允许任意域名跨域
+	res.setHeader("Access-Control-Allow-Origin","*");
+	//跨域允许的header类型
+	res.setHeader("Access-Control-Allow-Headers","Content-type,Content-Length,Authorization,Accept,X-Requested-Width");
+	//跨域允许的请求方式
+	res.setHeader("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+	//设置响应头信息
+	res.setHeader("X-Powered-By",' 3.2.1');
+	//让options请求快速返回
+	if(req.method == "OPTIONS"){
+		return res.end();
+	}
+
 	console.log("Incoming request: (" + req.method + ") " + req.url);
 	req.parsed_url = url.parse(req.url, true);
 	//console.log(req.parsed_url);
@@ -17,11 +30,11 @@ function handle_incoming_request(req, res){
   //console.log(core_url);
   if(core_url.substring(0, 7) == '/calvin'){
     serve_calvin(req, res);
-    //console.log("calvin");
-    //res.end("calvin");
   } else if(core_url.substring(0, 5) == '/rose'){
-    console.log(req.parsed_url.query);
+		//console.log(req.parsed_url.query);
     res.end(JSON.stringify({ name: 'rose' }));
+  } else if(core_url.substring(0, 4) == '/wrq'){
+		res.end();
   } else if(core_url.substring(0, 5) == '/anna'){
     var body = '';
     req.on('data', function (chunk) {
@@ -29,9 +42,9 @@ function handle_incoming_request(req, res){
     });
     req.on('end', function () {
         body = JSON.parse(body);
-				console.log(body);
+				res.end(JSON.stringify(body));
     });
-    res.end(JSON.stringify({ name: 'anna' }));
+
 	} else {
 		res.writeHead(404, {"Content-Type": "application/json"});
 		res.end(JSON.stringify({error: "unknown_resource"}));

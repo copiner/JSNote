@@ -34,8 +34,10 @@ function setName1(obj){
     obj.name = 'Mechel';
     obj = new Object();
     obj.name = 'Grey';
+    return obj;
 }
 
 var author = new Object();
-setName1(author);
+var tp = setName1(author);
 console.log(author.name);
+console.log(tp.name);

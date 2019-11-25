@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+</head>
+</head>
+<body>
+<p>value</p>
+<script>
+let url ='http://127.0.0.1:3000/anna';
+let url2 ='http://127.0.0.1:3000/rose?id=001&info=noob';
+let url3 ='http://127.0.0.1:3000/wrq';
+/*
+xHttp('POST',url,{
+          name: 'wrq',
+          age: "1"
+        }).then(v => {
+          console.log(v);
+          document.querySelector("p").innerText = 'v';
+        }).catch((e)=>{
+          console.log('catch:' + e);
+        }).finally(()=>{
+          console.log('finally');
+        });
+*/
+
+function pAll() {
+    return Promise.all([
+      xHttp('POST',url,{
+        name: 'wrq',
+        age: "1"
+      }),
+      xHttp('GET',url2),
+      xHttp('GET',url3)
+    ]);
+}
+//all
+pAll().then(function(value) {
+    console.log(value);
+    //Wait for all promises to be resolved, or for any to be rejected
+}).catch((e)=>{
+  console.log('catch:' + e);
+}).finally(()=>{
+  console.log('finally all');
+});
+
+//race
+Promise.race([
+  xHttp('GET',url2),
+  xHttp('POST',url,{
+    name: 'wrq',
+    age: "1"
+  })
+]).then(function(value) {
+  console.log(value);
+  // Both resolve, but url is faster
+}).catch((e)=>{
+  console.log('catch:' + e);
+}).finally(()=>{
+  console.log('finally race');
+});
+
+function xHttp(method,url,options) {
+    if(options == undefined || method == 'GET' || method == 'HEAD'){
+      options = null;
+    }
+    return new Promise(function(resolve, reject){
+        var XHR = new XMLHttpRequest();
+        XHR.open(method, url, true);
+        XHR.setRequestHeader("Content-type", "application/json;charset=utf-8");
+        XHR.send(JSON.stringify(options));
+
+        XHR.onreadystatechange = function() {
+
+            if (XHR.readyState === XMLHttpRequest.DONE/*4*/) {
+              if(XHR.status === 200){
+                try {
+                    var value = JSON.parse(XHR.responseText);
+                    resolve(value);
+                } catch (e) {
+                    reject(e);
+                }
+              } else {
+                reject(new Error(XHR.statusText));
+              }
+
+            }
+
+        }
+    })
+}
+</script>
+</body>
+</html>

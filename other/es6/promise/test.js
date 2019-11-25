@@ -1,4 +1,4 @@
-var fn = function(num) {
+let pro = function(num) {
     return new Promise(function(resolve, reject) {
         if (typeof num == 'number') {
             resolve(num);
@@ -8,7 +8,7 @@ var fn = function(num) {
     })
 }
 
-fn("q").then(function(num) {
+pro("q").then(function(num) {
     console.log('first: ' + num);
     return num + 1;
 }).then(function(num) {
@@ -20,4 +20,9 @@ fn("q").then(function(num) {
 }).catch(function(e){
     console.log('rejected');
     console.log(e);
+})
+/*ES2018 引入标准
+.finally(function(){
+    console.log("finally")
 });
+*/
