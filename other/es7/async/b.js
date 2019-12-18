@@ -1,8 +1,8 @@
 async function timeout(flag){
     if(flag){
-	return "world";
+	     return "world";
     }else{
-	throw 'Jues';
+	     throw 'Jues';
     }
 }
 

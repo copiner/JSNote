@@ -39,9 +39,9 @@ async function doIta() {
     console.time("doIta");
     const time1 = 300;
     try{//rejected accur
-	const time2 = await step1(time1);	
+	     const time2 = await step1(time1);	
     }catch(err){
-	console.log(err)
+	     console.log(err)
     }
 
     const time3 = await step2(time2);

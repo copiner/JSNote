@@ -1,8 +1,8 @@
 function doubleAfter2seconds(num){
     return new Promise((resolve,reject)=>{
-	setTimeout(()=>{
-	    resolve(2*num)
-	},2000)
+    	setTimeout(()=>{
+    	    resolve(2*num)
+    	},2000)
     })
 }
 

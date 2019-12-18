@@ -1,9 +1,0 @@
-async function timeout(){
-    return "hello";
-}
-
-timeout().then(result=>{
-    console.log(result);
-})
-
-console.log("oh jues");
