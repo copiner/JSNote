@@ -1,0 +1,27 @@
+<script>
+//父类
+function Person(name,age){
+	this.name = name;
+	this.age = age;
+	this.sayName = function(){
+            console.log("object name:"+this.name);
+	}
+	this.sayAge = function(){
+            console.log("object age:"+this.age);
+	}    
+}
+//子类
+function Worker(job){
+	this.job = job;
+	this.sayJob = function(){
+	    console.log("object job:"+this.job);
+	}
+}
+  Worker.prototype = new Person("tcy",20);//利用原型实现Worker对Person的继承
+  //Worker的原型是Person的一个实例
+var teacher = new Worker("teacher");
+teacher.sayName();//object name:tcy
+teacher.sayJob();//object job:teacher
+teacher.sayAge();
+  console.log(teacher.job);
+</script>

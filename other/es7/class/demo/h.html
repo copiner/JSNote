@@ -1,0 +1,28 @@
+<script>
+  let sex = 0;
+  class Person{
+	
+	constructor(name, age) {
+	    this.name = name;
+	    this.age = age;
+	}
+
+
+	//使用get set来定义属性
+	get sex() {
+		return sex
+	}
+	set sex(value) {
+		sex = value
+	}
+
+
+	static sayName(){
+		console.log("this is static functon");
+	}
+}
+Person.sayName();
+var person = new Person("tcy",20);
+person.sex = 1;
+console.log(person.sex);//1
+</script>

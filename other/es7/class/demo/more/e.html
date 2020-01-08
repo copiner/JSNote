@@ -1,0 +1,41 @@
+<script>
+/*
+ES6的继承机制有关，先创建父类的实例对象，然后在构建子类的实例，再修改父类中的this对象
+*/
+class Person{  
+	constructor(name, age) {
+	  this.name = name;
+	  this.age = age;
+	  this.job = 'doctor';//父类定义的job
+	}
+
+	sayName(){
+		console.log("the name is:"+this.name);
+	}
+
+	sayJob(){
+	 console.log("the person job is:"+this.job);
+	}
+}
+
+
+class Worker extends Person{
+
+	constructor(name, age,job) {
+		  super(name, age);
+		  this.job = job;
+	}
+	sayJob(){
+	  super.sayJob();//the person job is:teacher
+	}
+
+	sayName(){
+	  console.log(super.name);//调用父类的原型属性，tcy
+	}
+
+}
+
+var worker = new Worker('tcy',20,'teacher');
+worker.sayJob();//the job is:teacher
+</script>
+ 

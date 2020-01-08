@@ -23,7 +23,7 @@ function testAwait2(){
 async function helloAsync2(){
 	try{
      await testAwait2();
-	}catch(e){
+	} catch(e) {
 		console.log("this 2 error:"+e)//this error:error
 	}
 	console.log("helloAsync2");//helloAsync
