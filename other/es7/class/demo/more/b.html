@@ -1,0 +1,31 @@
+<script>
+class Person{  
+	constructor(name, age) {
+	  this.name = name;
+	  this.age = age;
+	}
+
+	sayName(){
+		console.log("the name is:"+this.name);
+	}
+}
+
+class Worker extends Person{
+	constructor(name, age,job) {
+		  super(name, age);
+		  this.job = job;
+	}
+	sayJob(){
+	  console.log("the job is:"+this.job)
+	}
+
+	sayName(){
+	  super.sayName();//调用父类的方法，
+	  console.log("the worker name is:"+this.name)
+	}
+}
+
+var worker = new Worker('tcy',20,'teacher');
+worker.sayJob();//the job is:teacher
+worker.sayName();//the name is:tcy the worker name is:tcy
+</script>

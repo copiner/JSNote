@@ -1,0 +1,22 @@
+<script>
+function Person(name,age){
+	this.name = name;
+	this.age = age;
+	this.sayName = function(){
+		console.log("object name:"+this.name);
+	}
+}
+
+Person.prototype.sayName= function(){
+	console.log("prototype name:"+this.name);
+};
+Person.prototype.sayAge= function(){
+	console.log("prototype age:"+this.age);
+};
+var person1 = new Person("tcy",20);
+  console.log(person1);
+
+  console.log(Person.prototype);
+    console.log(Person.prototype.constructor);
+  console.log(person1 instanceof Person)
+</script>

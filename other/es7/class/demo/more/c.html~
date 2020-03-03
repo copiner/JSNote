@@ -1,0 +1,32 @@
+<script>
+class Person{
+	constructor(name, age) {
+		Person.prototype.name = name;//定义到原型上
+		this.age = age;
+	}
+
+	sayName(){
+		console.log("the name is:"+Person.prototype.name);
+	}
+}
+ 
+
+class Worker extends Person{
+	constructor(name, age,job) {
+		super(name, age);
+		this.job = job;
+	}
+	sayJob(){
+	console.log("the job is:"+this.job)
+	}
+
+	sayName(){
+	console.log(super.name);//调用父类的原型属性，tcy
+	console.log("the worker name is:"+this.name)
+	}
+}
+
+var worker = new Worker('tcy',20,'teacher');
+worker.sayJob();//the job is:teacher
+worker.sayName();//tcy,the worker name is:tcy
+</script>

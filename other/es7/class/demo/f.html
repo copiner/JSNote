@@ -1,0 +1,26 @@
+    <script>
+
+const _name = Symbol('name');
+const _age = Symbol('age');
+const _sayName = Symbol('sayName');
+class Person {
+  constructor(name, age) {
+    this[_name] = name;
+    this[_age] = age;
+  }
+  //私有方法
+   [_sayName](){
+      console.log("object name:"+this[_name]);
+   }
+   //共有方法
+   sayName(){
+    this[_sayName]();
+   }
+}
+ 
+var person = new Person("tcy",20);
+person.sayName();//object name:tcy
+//person._sayName();
+person._name;//undefined
+
+</script>
