@@ -1,3 +1,2 @@
-a notebook about javascript
 
-jQuery
+a notebook about javascript

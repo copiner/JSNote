@@ -1,8 +1,0 @@
-
-function mgo(){
-    var macarry = mac.map(function (item,index) {
-        return {
-	    mac:item.replace(/\:/g,'')
-        };
-    })
-}

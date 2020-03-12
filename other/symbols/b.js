@@ -1,3 +1,5 @@
+
+
 var obj = {
     0:'abc',
     1:'xyz',
@@ -21,3 +23,13 @@ var obj = {
         }
     }
 }
+
+for(let v of obj){
+    console.log(v);
+}
+
+
+var it = obj[Symbol.iterator]();
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
