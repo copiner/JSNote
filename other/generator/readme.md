@@ -1,36 +1,17 @@
-### 生成器
+### Generators
 
-生成器对象是由一个 generator function 返回的,并且它符合可迭代协议和迭代器协议。
+Generator functions are a special kind of iterator that can be declared using the function* generator () {} syntax
 
-### 方法
-```
-Generator.prototype.next()
-```
-返回一个由 yield表达式生成的值。
-```
-Generator.prototype.return()
-```
-返回给定的值并结束生成器。
-```
-Generator.prototype.throw()
-```
-向生成器抛出一个错误。
+Generator functions use yield to emit an element sequence
 
-### 一个无限迭代器
-```
-function* idMaker(){
-    let index = 0;
-    while(true)
-        yield index++;
-}
+Generator functions can also use yield* to delegate to another generator function – or any iterable object
 
-let gen = idMaker(); // "Generator { }"
+Generator functions return a generator object that’s adheres to both the iterable and iterator protocols
 
-console.log(gen.next().value);
-// 0
-console.log(gen.next().value);
-// 1
-console.log(gen.next().value);
-// 2
-// ...
-```
+Given g = generator(), g adheres to the iterable protocol because g[Symbol.iterator] is a method
+
+Given g = generator(), g adheres to the iterator protocol because g.next is a method
+
+The iterator for a generator object g is the generator itself: g[Symbol.iterator]() === g
+
+Pull values using Array.from(g), [...g], for (let item of g), or just calling g.next()

@@ -1,4 +1,5 @@
 
+
 function *gen(x){
 	console.log("1------");
 	var y = yield x + 2;
