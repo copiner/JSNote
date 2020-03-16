@@ -1,4 +1,6 @@
-
+/*
+Map is a key/value data structure in ES6. It provides a better data structure to be used for hash-maps. Here¡¯s how what we had earlier looks like with ES6 maps.
+*/
 var map = new Map()
 map.set('contra', { description: 'Asynchronous flow control' })
 map.set('dragula', { description: 'Drag and drop' })
