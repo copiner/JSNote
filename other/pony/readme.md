@@ -171,3 +171,23 @@ Check for a key using map.has(key)
 Remove entries with map.delete(key)
 
 Iterate over map with for (let [key, value] of map), the spread operator, Array.from, etc
+
+### WeakMaps
+Similar to Map, but not quite the same
+
+WeakMap isn't iterable, so you don't get enumeration methods like .forEach, .clear, and others you had in Map
+
+WeakMap keys must be reference types, You can't use value types like symbols, numbers, or strings as keys
+
+WeakMap entries with a key that's the only reference to the referenced variable are subject to garbage collection
+
+That last point means WeakMap is great at keeping around metadata for objects, while those objects are still in use
+
+You avoid memory leaks, without manual reference counting
+
+
+### WeakSet
+1. WeakSet is sort of a cross-breed between Set and WeakMap
+2. A WeakSet is a set that can’t be iterated and doesn’t have enumeration methods
+3. WeakSet values must be reference types
+4. WeakSet may be useful for a metadata table indicating whether a reference is actively in use or not
