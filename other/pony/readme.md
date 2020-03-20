@@ -191,3 +191,59 @@ You avoid memory leaks, without manual reference counting
 2. A WeakSet is a set that can’t be iterated and doesn’t have enumeration methods
 3. WeakSet values must be reference types
 4. WeakSet may be useful for a metadata table indicating whether a reference is actively in use or not
+
+### Proxies
+
+Proxies are created with new Proxy(target, handler), where target is any object and handler is configuration
+
+The default behavior of a proxy acts as a passthrough to the underlying target object
+
+Handlers determine how the underlying target object is accessed on top of regular object property access semantics
+
+You pass off references to proxy and retain strict control over how target can be interacted with
+
+Handlers are also known as traps, these terms are used interchangeably
+
+You can create revocable proxies with Proxy.revocable(target, handler)
+
+1.That method returns an object with proxy and revoke properties
+2.You could destructure var {proxy, revoke} = Proxy.revocable(target, handler) for convenience
+3.You can configure the proxy all the same as with new Proxy(target, handler)
+4.After revoke() is called, the proxy will throw on any operation, making it convenient when you can’t trust consumers
+
+get – traps proxy.prop and proxy['prop']
+
+set – traps proxy.prop = value and proxy['prop'] = value
+
+has – traps in operator
+
+deleteProperty – traps delete operator
+
+defineProperty – traps Object.defineProperty and declarative alternatives
+
+enumerate – traps for..in loops
+
+ownKeys – traps Object.keys and related methods
+
+apply – traps function calls
+
+construct – traps usage of the new operator
+
+getPrototypeOf – traps internal calls to [[GetPrototypeOf]]
+
+setPrototypeOf – traps calls to Object.setPrototypeOf
+
+isExtensible – traps calls to Object.isExtensible
+
+preventExtensions – traps calls to Object.preventExtensions
+
+getOwnPropertyDescriptor – traps calls to Object.getOwnPropertyDescriptor
+
+### Reflection
+Reflection is a new static built-in (think of Math) in ES6
+
+Reflection methods have sensible internals, e.g Reflect.defineProperty returns a boolean instead of throwing
+
+There’s a Reflection method for each proxy trap handler, and they represent the default behavior of each trap
+
+Going forward, new reflection methods in the same vein as Object.keys will be placed in the Reflection namespace
