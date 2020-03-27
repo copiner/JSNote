@@ -7,7 +7,7 @@ Array.prototype.slice.call(arguments)能将具有length属性的对象转成数组
 类数组转成数组主要有：Array.from()，[].slice.call()(Array.prototype.slice.call()),扩展运算符，也能将某些数据结构转成数组
 */
 function list(){
-    console.log(arguments.length);//{ '0': 1, '1': 2, '2': 3 }
+//    console.log(arguments.length);//{ '0': 1, '1': 2, '2': 3 }
     return Array.prototype.slice.call(arguments);
 }
 
@@ -16,6 +16,7 @@ console.log(list);
 
 var a={ length:3, '0': 1, '1': 2, '2': 3 }
 console.log(Array.prototype.slice.call(a));
+console.log(Array.prototype.slice.call(a, 2));
 
 var b = { '0': 1, '1': 2, '2': 3 };
 console.log(Array.prototype.slice.call(b));
