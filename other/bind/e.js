@@ -1,17 +1,16 @@
-
-function LateBloomer() {
-  this.petalCount = Math.ceil(Math.random() * 12) + 1;
+function Test3(a, b) {
+    this.a = a;
+    this.b = b;
+}
+Test3.prototype.add = function () {
+    return this.a + this.b;
 }
 
-// ÔÚ 1 ÃëÖÓºóÉùÃ÷ bloom
-LateBloomer.prototype.bloom = function() {
-  window.setTimeout(this.declare.bind(this), 1000);
-};
+// å¦‚æœä¸ç”¨ bindï¼Œæ­£å¸¸æ¥è¯´è¿™æ ·å¤„ç†
+var t1 = new Test3(1, 2);
+t1.add(); // 3, this æŒ‡å‘ t1
 
-LateBloomer.prototype.declare = function() {
-  console.log('I am a beautiful flower with ' +
-    this.petalCount + ' petals!');
-};
-
-var flower = new LateBloomer();
-flower.bloom();  // Ò»ÃëÖÓºó, µ÷ÓÃ 'declare' ·½·¨
+// ä½¿ç”¨ bind
+var NewTest3 = Test3.bind(null, 3);
+var t2 = new NewTest3(4);
+t2.add(); // 7, this æŒ‡å‘ t2
