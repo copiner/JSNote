@@ -18,3 +18,5 @@ console.log(cast('a','b'))//['a','b']
 console.log(scast('a','b'))//['a','b']
 console.log(rcast('a','b'))//['a','b']
 console.log(fcast('a','b'))//['a','b']
+
+
