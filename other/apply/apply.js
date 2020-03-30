@@ -1,3 +1,8 @@
+const obj = { a: 1, b: 2 };
+
+function add(c, d) {
+  return this.a + this.b + c + d;
+}
 
 Function.prototype.es3Apply = function (context, arr) {
   var context = context || window;
@@ -6,12 +11,12 @@ Function.prototype.es3Apply = function (context, arr) {
   if (!arr) {
     result = context.fn();
   } else {
-    // »ñÈ¡²ÎÊý
+    // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
     var args = [];
     for (var i = 0, len = arr.length; i < len; i++) {
       args.push('arr[' + i + ']');
     }
-    // Ö´ÐÐº¯Êý
+    // Ö´ï¿½Ðºï¿½ï¿½ï¿½
     result = eval('context.fn(' + args + ')')
   }
   delete context.fn;
