@@ -19,7 +19,7 @@ proxy 不需要对 keys 进行遍历。这解决Object.defineProperty() 的第�
 
 proxy 支持数组
 
-proxy 嵌套支持: get 里面递归调用 Proxy 并返回
+proxy 嵌套支持: get里面递归调用 Proxy 并返回
 */
 let obj = {
   name: 'copiner',
@@ -40,3 +40,46 @@ proxy.name = 'rq' // set name rq
 proxy.age = 18 // set age 18
 
 console.log(obj)
+console.log("---------------------")
+//数组
+
+let arr = [3,2,7]
+let proxy1 = new Proxy(arr, {
+    get (target, key, receiver) {
+        console.log('get', key)
+        return Reflect.get(target, key, receiver)
+    },
+    set (target, key, value, receiver) {
+        console.log('set', key, value)
+        return Reflect.set(target, key, value, receiver)
+    }
+})
+proxy1.push(5)
+
+console.log(arr);
+console.log("---------------------")
+//嵌套
+let obj2 = {
+  info: {
+    name: 'eason',
+    blogs: ['webpack', 'babel', 'cache']
+  }
+}
+let handler2 = {
+  get (target, key, receiver) {
+    console.log('get', key)
+    // 递归创建并返回
+    if (typeof target[key] === 'object' && target[key] !== null) {
+      return new Proxy(target[key], handler)
+    }
+    return Reflect.get(target, key, receiver)
+  },
+  set (target, key, value, receiver) {
+    console.log('set', key, value)
+    return Reflect.set(target, key, value, receiver)
+  }
+}
+let proxy2 = new Proxy(obj2, handler2)
+
+proxy2.info.name = 'Zoe'
+proxy2.info.blogs.push('proxy')
