@@ -1,9 +1,0 @@
-
-function loop(flag){
-    if(flag){
-	    console.log("111111")
-    }else{
-	setTimeout(function(){},5000);
-    }
-
-}
