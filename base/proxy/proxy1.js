@@ -70,7 +70,8 @@ let handler2 = {
     console.log('get', key)
     // 递归创建并返回
     if (typeof target[key] === 'object' && target[key] !== null) {
-      return new Proxy(target[key], handler)
+      console.log(target[key])
+      return new Proxy(target[key], handler2)
     }
     return Reflect.get(target, key, receiver)
   },
@@ -81,5 +82,8 @@ let handler2 = {
 }
 let proxy2 = new Proxy(obj2, handler2)
 
-proxy2.info.name = 'Zoe'
+//proxy2.info.name = 'Zoe'
 proxy2.info.blogs.push('proxy')
+
+// console.log(obj2.info.name)
+// console.log(obj2.info.blogs)
