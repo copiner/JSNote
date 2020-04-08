@@ -1,10 +1,10 @@
 /*
-ÒòÎªarguments²¢²»ÊÇÕæÕıµÄÊı×é¶ÔÏó£¬Ö»ÊÇÓëÊı×éÀàËÆ¶øÒÑ£¬ËùÒÔËü²¢Ã»ÓĞsliceÕâ¸ö·½·¨£¬¶øArray.prototype.slice.call(arguments, 1)¿ÉÒÔÀí½â³ÉÊÇÈÃarguments×ª»»³ÉÒ»¸öÊı×é¶ÔÏó£¬ÈÃarguments¾ßÓĞslice()·½·¨
+å› ä¸ºargumentså¹¶ä¸æ˜¯çœŸæ­£çš„æ•°ç»„å¯¹è±¡ï¼Œåªæ˜¯ä¸æ•°ç»„ç±»ä¼¼è€Œå·²ï¼Œæ‰€ä»¥å®ƒå¹¶æ²¡æœ‰sliceè¿™ä¸ªæ–¹æ³•ï¼Œè€ŒArray.prototype.slice.call(arguments, 1)å¯ä»¥ç†è§£æˆæ˜¯è®©argumentsè½¬æ¢æˆä¸€ä¸ªæ•°ç»„å¯¹è±¡ï¼Œè®©argumentså…·æœ‰slice()æ–¹æ³•
 
-Array.prototype.slice.call(arguments)ÄÜ½«¾ßÓĞlengthÊôĞÔµÄ¶ÔÏó×ª³ÉÊı×é
+Array.prototype.slice.call(arguments)èƒ½å°†å…·æœ‰lengthå±æ€§çš„å¯¹è±¡è½¬æˆæ•°ç»„
 
-ÆäÊµ¾ÍÊÇÓÃÓÚ°ÑÀàÊı×é¶ÔÏó×ª»»³ÉÁËÊı×é£¬Ê¹ÓÃÊı×éµÄÒ»ÏµÁĞ·½·¨¡£
-ÀàÊı×é×ª³ÉÊı×éÖ÷ÒªÓĞ£ºArray.from()£¬[].slice.call()(Array.prototype.slice.call()),À©Õ¹ÔËËã·û£¬Ò²ÄÜ½«Ä³Ğ©Êı¾İ½á¹¹×ª³ÉÊı×é
+å…¶å®å°±æ˜¯ç”¨äºæŠŠç±»æ•°ç»„å¯¹è±¡è½¬æ¢æˆäº†æ•°ç»„ï¼Œä½¿ç”¨æ•°ç»„çš„ä¸€ç³»åˆ—æ–¹æ³•ã€‚
+ç±»æ•°ç»„è½¬æˆæ•°ç»„ä¸»è¦æœ‰ï¼šArray.from()ï¼Œ[].slice.call()(Array.prototype.slice.call()),æ‰©å±•è¿ç®—ç¬¦ï¼Œä¹Ÿèƒ½å°†æŸäº›æ•°æ®ç»“æ„è½¬æˆæ•°ç»„
 */
 function list(){
 //    console.log(arguments.length);//{ '0': 1, '1': 2, '2': 3 }
@@ -20,4 +20,3 @@ console.log(Array.prototype.slice.call(a, 2));
 
 var b = { '0': 1, '1': 2, '2': 3 };
 console.log(Array.prototype.slice.call(b));
-

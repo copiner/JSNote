@@ -6,11 +6,11 @@ var a = function(){
 }
 a.call('littledu');
 
-//sliceµÄÄÚ²¿ÊµÏÖ
+//sliceçš„å†…éƒ¨å®ç°
 Array.prototype.slice = function(start,end){
      var result = new Array();
      start = start || 0;
-     end = end || this.length; //thisÖ¸Ïòµ÷ÓÃµÄ¶ÔÏó£¬µ±ÓÃÁËcallºó£¬ÄÜ¹»¸Ä±äthisµÄÖ¸Ïò£¬Ò²¾ÍÊÇÖ¸Ïò´«½øÀ´µÄ¶ÔÏó£¬ÕâÊÇ¹Ø¼ü
+     end = end || this.length; //thisæŒ‡å‘è°ƒç”¨çš„å¯¹è±¡ï¼Œå½“ç”¨äº†callåï¼Œèƒ½å¤Ÿæ”¹å˜thisçš„æŒ‡å‘ï¼Œä¹Ÿå°±æ˜¯æŒ‡å‘ä¼ è¿›æ¥çš„å¯¹è±¡ï¼Œè¿™æ˜¯å…³é”®
      for(var i = start; i < end; i++){
           result.push(this[i]);
      }

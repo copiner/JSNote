@@ -1,8 +1,8 @@
 
 /*
-bind() ·½·¨»á´´½¨Ò»¸öĞÂº¯Êı¡£
-µ±Õâ¸öĞÂº¯Êı±»µ÷ÓÃÊ±£¬bind() µÄµÚÒ»¸ö²ÎÊı½«×÷ÎªËüÔËĞĞÊ±µÄ this£¬
-Ö®ºóµÄÒ»ĞòÁĞ²ÎÊı½«»áÔÚ´«µİµÄÊµ²ÎÇ°´«Èë×÷ÎªËüµÄ²ÎÊı
+bind() æ–¹æ³•ä¼šåˆ›å»ºä¸€ä¸ªæ–°å‡½æ•°ã€‚
+å½“è¿™ä¸ªæ–°å‡½æ•°è¢«è°ƒç”¨æ—¶ï¼Œbind() çš„ç¬¬ä¸€ä¸ªå‚æ•°å°†ä½œä¸ºå®ƒè¿è¡Œæ—¶çš„ thisï¼Œ
+ä¹‹åçš„ä¸€åºåˆ—å‚æ•°å°†ä¼šåœ¨ä¼ é€’çš„å®å‚å‰ä¼ å…¥ä½œä¸ºå®ƒçš„å‚æ•°
 */
 
 function foo(c, d) {
@@ -12,18 +12,18 @@ function foo(c, d) {
   console.log(c)
   console.log(d)
 }
-// ÎÒÃÇ½«foo bindµ½{a: 1}
-var func = foo.bind({a: 1}, '1st'); 
+// æˆ‘ä»¬å°†foo bindåˆ°{a: 1}
+var func = foo.bind({a: 1}, '1st');
 func('2nd'); // 1 100 1st 2nd
-// ¼´Ê¹ÔÙ´ÎcallÒ²²»ÄÜ¸Ä±äthis¡£
+// å³ä½¿å†æ¬¡callä¹Ÿä¸èƒ½æ”¹å˜thisã€‚
 func.call({a: 2}, '3rd'); // 1 100 1st 3rd
 
 var temp = foo.bind(null, '1st');
 temp('2nd');
 
-// µ± bind ·µ»ØµÄº¯Êı×÷Îª¹¹Ôìº¯ÊıµÄÊ±ºò£¬
-// bind Ê±Ö¸¶¨µÄ this Öµ»áÊ§Ğ§£¬µ«´«ÈëµÄ²ÎÊıÒÀÈ»ÉúĞ§¡£
-// ËùÒÔÊ¹ÓÃfuncÎª¹¹Ôìº¯ÊıÊ±£¬this²»»áÖ¸Ïò{a: 1}¶ÔÏó£¬this.aµÄÖµÎªundefined¡£ÈçÏÂ
+// å½“ bind è¿”å›çš„å‡½æ•°ä½œä¸ºæ„é€ å‡½æ•°çš„æ—¶å€™ï¼Œ
+// bind æ—¶æŒ‡å®šçš„ this å€¼ä¼šå¤±æ•ˆï¼Œä½†ä¼ å…¥çš„å‚æ•°ä¾ç„¶ç”Ÿæ•ˆã€‚
+// æ‰€ä»¥ä½¿ç”¨funcä¸ºæ„é€ å‡½æ•°æ—¶ï¼Œthisä¸ä¼šæŒ‡å‘{a: 1}å¯¹è±¡ï¼Œthis.açš„å€¼ä¸ºundefinedã€‚å¦‚ä¸‹
 
 // new func('4th'); //undefined 100 1st 4th
 
@@ -38,21 +38,21 @@ Function.prototype.es3Bind = function (context) {
   var self = this;
   var args = Array.prototype.slice.call(arguments, 1);
   const fBound = function () {
-    // »ñÈ¡º¯ÊıµÄ²ÎÊı
+    // è·å–å‡½æ•°çš„å‚æ•°
     var bindArgs = Array.prototype.slice.call(arguments);
-    // ·µ»Øº¯ÊıµÄÖ´ĞĞ½á¹û
-    // ÅĞ¶Ïº¯ÊıÊÇ×÷Îª¹¹Ôìº¯Êı»¹ÊÇÆÕÍ¨º¯Êı
-    // ¹¹Ôìº¯Êıthis instanceof fNOP·µ»Øtrue£¬½«°ó¶¨º¯ÊıµÄthisÖ¸Ïò¸ÃÊµÀı£¬¿ÉÒÔÈÃÊµÀı»ñµÃÀ´×Ô°ó¶¨º¯ÊıµÄÖµ¡£
-    // µ±×÷ÎªÆÕÍ¨º¯ÊıÊ±£¬this Ö¸Ïò window£¬´ËÊ±½á¹ûÎª false£¬½«°ó¶¨º¯ÊıµÄ this Ö¸Ïò context
+    // è¿”å›å‡½æ•°çš„æ‰§è¡Œç»“æœ
+    // åˆ¤æ–­å‡½æ•°æ˜¯ä½œä¸ºæ„é€ å‡½æ•°è¿˜æ˜¯æ™®é€šå‡½æ•°
+    // æ„é€ å‡½æ•°this instanceof fNOPè¿”å›trueï¼Œå°†ç»‘å®šå‡½æ•°çš„thisæŒ‡å‘è¯¥å®ä¾‹ï¼Œå¯ä»¥è®©å®ä¾‹è·å¾—æ¥è‡ªç»‘å®šå‡½æ•°çš„å€¼ã€‚
+    // å½“ä½œä¸ºæ™®é€šå‡½æ•°æ—¶ï¼Œthis æŒ‡å‘ windowï¼Œæ­¤æ—¶ç»“æœä¸º falseï¼Œå°†ç»‘å®šå‡½æ•°çš„ this æŒ‡å‘ context
     return self.apply(this instanceof fNOP ? this: context, args.concat(bindArgs));
   }
-  // ´´½¨¿Õº¯Êı
+  // åˆ›å»ºç©ºå‡½æ•°
   var fNOP = function () {};
-  // fNOPº¯ÊıµÄprototypeÎª°ó¶¨º¯ÊıµÄprototype
+  // fNOPå‡½æ•°çš„prototypeä¸ºç»‘å®šå‡½æ•°çš„prototype
   fNOP.prototype = this.prototype;
-  // ·µ»Øº¯ÊıµÄprototypeµÈÓÚfNOPº¯ÊıµÄÊµÀıÊµÏÖ¼Ì³Ğ
+  // è¿”å›å‡½æ•°çš„prototypeç­‰äºfNOPå‡½æ•°çš„å®ä¾‹å®ç°ç»§æ‰¿
   fBound.prototype = new fNOP();
-  // ÒÔÉÏÈı¾äÏàµ±ÓÚObject.create(this.prototype)
+  // ä»¥ä¸Šä¸‰å¥ç›¸å½“äºObject.create(this.prototype)
   return fBound;
 }
 

@@ -14,22 +14,22 @@ console.log(add.call(obj, 3, 4)); //10
 
 console.log(add.call(null, 3,4));
 
-//·ÇÑÏ¸ñÄ£Ê½ÏÂ£¬ÈôobjÌæ»»ÎªnullºÍundefined£¬thisÖµ»á`×Ô¶¯`Ö¸ÏòÈ«¾Ö¶ÔÏó£¨ä¯ÀÀÆ÷ÖĞ¾ÍÊÇwindow¶ÔÏó£©
+//éä¸¥æ ¼æ¨¡å¼ä¸‹ï¼Œè‹¥objæ›¿æ¢ä¸ºnullå’Œundefinedï¼Œthiså€¼ä¼š`è‡ªåŠ¨`æŒ‡å‘å…¨å±€å¯¹è±¡ï¼ˆæµè§ˆå™¨ä¸­å°±æ˜¯windowå¯¹è±¡ï¼‰
 
 /*
-ÀàËÆ£¬¸øo¶ÔÏóÌí¼ÓÒ»¸öaddÊôĞÔ£¬Õâ¸öÊ±ºò this ¾ÍÖ¸ÏòÁË o
+ç±»ä¼¼ï¼Œç»™oå¯¹è±¡æ·»åŠ ä¸€ä¸ªaddå±æ€§ï¼Œè¿™ä¸ªæ—¶å€™ this å°±æŒ‡å‘äº† o
 
-o.add(5,7)µÃµ½µÄ½á¹ûºÍadd.call(o, 5, 7)ÏàÍ¬
+o.add(5,7)å¾—åˆ°çš„ç»“æœå’Œadd.call(o, 5, 7)ç›¸åŒ
 
-µ«ÊÇ¸ø¶ÔÏóoÌí¼ÓÁËÒ»¸ö¶îÍâµÄaddÊôĞÔ£¬Õâ¸öÊôĞÔÎÒÃÇÊÇ²»ĞèÒªµÄ£¬ËùÒÔ¿ÉÒÔÊ¹ÓÃdeleteÉ¾³ıËü
+ä½†æ˜¯ç»™å¯¹è±¡oæ·»åŠ äº†ä¸€ä¸ªé¢å¤–çš„addå±æ€§ï¼Œè¿™ä¸ªå±æ€§æˆ‘ä»¬æ˜¯ä¸éœ€è¦çš„ï¼Œæ‰€ä»¥å¯ä»¥ä½¿ç”¨deleteåˆ é™¤å®ƒ
 
-1. ½«º¯ÊıÉèÎª¶ÔÏóµÄÊôĞÔ
+1. å°†å‡½æ•°è®¾ä¸ºå¯¹è±¡çš„å±æ€§
 o.fn = bar
 
-2. Ö´ĞĞ¸Ãº¯Êı
+2. æ‰§è¡Œè¯¥å‡½æ•°
 o.fn()
 
-3. É¾³ı¸Ãº¯Êı
+3. åˆ é™¤è¯¥å‡½æ•°
 delete o.fn
 
 */
@@ -49,25 +49,25 @@ console.log(add.call(o,3,4));
 console.log('-----------------------------');
 
 /*
-»ùÓÚES3ÊµÏÖcall
+åŸºäºES3å®ç°call
 */
 
 
 Function.prototype.es3Call = function (context) {
     var context = context || window;
     console.log(context);
-    context.fn = this;//ÕâÀïthis === function add(c,d){}
+    context.fn = this;//è¿™é‡Œthis === function add(c,d){}
     console.log(context);
    var args = [];
-    // argumentsÊÇÀàÊı×é¶ÔÏó£¬±éÀúÖ®Ç°ĞèÒª±£´æ³¤¶È£¬ÕâÀï¹ıÂË³öµÚÒ»¸ö´«²Î
+    // argumentsæ˜¯ç±»æ•°ç»„å¯¹è±¡ï¼Œéå†ä¹‹å‰éœ€è¦ä¿å­˜é•¿åº¦ï¼Œè¿™é‡Œè¿‡æ»¤å‡ºç¬¬ä¸€ä¸ªä¼ å‚
     //    console.log(...arguments);
     console.log(...arguments);
   for (var i = 1, len = arguments.length ; i < len; i++) {
-	// ±ÜÃâobjectÖ®Àà´«Èë
+	// é¿å…objectä¹‹ç±»ä¼ å…¥
     args.push('arguments[' + i + ']');
   }
     console.log(...args);
-    
+
   var result = eval('context.fn('+args+')');
   delete context.fn;
   return result;
@@ -81,7 +81,7 @@ console.log(add.es3Call({ a: 3, b: 9 }, 3, 4)); // 19
 
 console.log('----------------------')
 /*
- ES6 call ÊµÏÖ
+ ES6 call å®ç°
 */
 Function.prototype.es6Call = function (context) {
   var context = context || window;
@@ -91,7 +91,7 @@ Function.prototype.es6Call = function (context) {
     args.push('arguments[' + i + ']');
   }
   const result = context.fn(...args);
-  delete context.fn;    
+  delete context.fn;
   return result;
 }
 
