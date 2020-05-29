@@ -1,4 +1,4 @@
-
+//node inspect a.js
 console.log('script start');
 
 setTimeout(function () {
