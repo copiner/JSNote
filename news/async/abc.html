@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <title>abc</title>
+  <head></head>
+  <body>
+    <script>
+
+      var a = {
+          index:1,
+          name:"aua"
+      }
+
+      console.log(a);
+
+      a.index++;
+
+      var b = 20;
+
+      function foo(){
+          b = b + 1;
+      }
+
+      function bar(){
+          b = b*2;
+      }
+
+      console.log(b);
+
+      setTimeout(function(){
+          bar();
+          console.log("bar", b);
+      },0);
+      setTimeout(function(){
+          foo();
+          console.log("foo", b);
+      },0);
+      //bar();
+
+    </script>
+  </body>
+</html>
