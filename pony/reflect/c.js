@@ -5,7 +5,9 @@
 
 
 var proto = Dominus.prototype
+
 Applied.prototype = proto
+
 function Applied (args) {
   return Dominus.apply(this, args)
 }

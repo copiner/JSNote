@@ -8,7 +8,7 @@ let pro = function(num) {
     })
 }
 
-pro("q").then(function(num) {
+pro(6).then(function(num) {
     console.log('first: ' + num);
     return num + 1;
 }).then(function(num) {
