@@ -1,3 +1,4 @@
+### JS中的 堆，栈，队列 宏任务 微任务
 event loop是一个执行模型，在不同的地方有不同的实现。浏览器和NodeJS基于不同的技术实现了各自的Event Loop。
 
 浏览器的Event Loop是在html5的规范中明确定义。
