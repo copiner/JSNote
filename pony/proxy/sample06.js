@@ -30,5 +30,5 @@ var pobj = new Proxy(obj, handlers);
 pobj.a = 3;
 pobj.foo();
 
-pobj.b = 4;
-pobj.bar();
+//pobj.b = 4;
+//pobj.bar();
