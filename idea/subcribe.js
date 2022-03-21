@@ -54,6 +54,9 @@ var pubsub = {};
     };
 })(pubsub);
 
-pubsub.subscribe("test", ()=>{console.log("hello world")});
+let token = pubsub.subscribe("test", ()=>{console.log("hello world")});
+console.log(token)
+pubsub.publish("test");
+pubsub.unSubscribe('0')
 pubsub.publish("test");
 

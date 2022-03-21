@@ -56,10 +56,21 @@ Subject.prototype.notify = function (context) {
 // 观察者
 function Observer () {
     this.update = function (context) {
-        console.log(context);
+        if(context === 'hello'){
+            console.log('yeps!')
+        }
+    }
+}
+function Observer1 () {
+    this.update = function (context) {
+        if(context === 'hello'){
+            console.log('yeps!')
+        }
     }
 }
 
 var mySubject = new Subject();
 mySubject.addObsever(new Observer);
-mySubject.notify("hello world");
+mySubject.addObsever(new Observer1);
+mySubject.notify("hello");
+mySubject.notify("world");
